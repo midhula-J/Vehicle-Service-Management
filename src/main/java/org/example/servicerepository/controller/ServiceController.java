@@ -31,4 +31,10 @@ public class ServiceController {
     public void delete(@PathVariable Long id){
         repository.deleteById(id);
     }
+
+    @GetMapping("/vehicle/{vehicleNumber}")
+    public List<ServiceRecord> searchVehicle(@PathVariable String vehicleNumber){
+        return repository.findByVehicleNumber(vehicleNumber);
+    }
+
 }
